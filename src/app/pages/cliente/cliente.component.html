@@ -1,0 +1,8 @@
+<h2>Listado de Clientes</h2>
+<ul>
+    @for (cliente of clientes; track $index) {
+        <li>{{cliente.nombre}}</li>
+        <li>{{cliente.apellido}}</li>
+        <li>{{cliente.email}}</li>
+    }
+</ul>
