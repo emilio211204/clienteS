@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Cliente, ClienteService } from '../../service/cliente.service';
+import {  ClienteService } from '../../service/cliente.service';
+import { FormularioClienteComponent } from "../../components/formulario-cliente/formulario-cliente.component";
 
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormularioClienteComponent],
   templateUrl: './cliente.component.html',
   styleUrl: './cliente.component.css'
 })
 export class ClientesComponent {
   constructor(private servicio: ClienteService){}
 
-  clientes: Cliente[] = []
+  clientes: any[] = []
 
   ngOnInit(){
     this.servicio.getClientes().subscribe({

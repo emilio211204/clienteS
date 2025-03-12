@@ -8,7 +8,8 @@ export interface Cliente {
   nombre: string;
   apellido: string;
   email: string;
-  telefono: string;
+  password : string;
+  username: string;
 }
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,13 @@ export class ClienteService {
       })
     );
   }
+
+  postCliente(cliente: Cliente): Observable<any> {
+  return this.http.post<Cliente>(`${this.API_CLIENTES}/guardarCliente`, cliente).pipe(
+    catchError(error => {
+      console.error('Error creando cliente:', error);
+      return throwError(() => new Error('Error al crear el cliente. Inténtelo de nuevo más tarde.'));
+    })
+  );
+}
 }
