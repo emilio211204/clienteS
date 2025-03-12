@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 // Definimos una interfaz para tipar los datos correctamente
 export interface Cliente {
   id: number;
-  nombre: string;
+  nombre: string; 
   apellido: string;
   email: string;
   password : string;
